@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <div class="header-title">
+                    <i class="fas fa-robot"></i>
+                    <h1>AI Assistant</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="theme-toggle">
+                        <button id="theme-toggle" class="theme-btn" title="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                    <div class="model-selector">
+                        <select id="model-select">
+                            <option value="llama-3.3-70b-versatile">🦙 Llama 3.3 70B (Best Quality)</option>
+                            <option value="llama-3.1-8b-instant">⚡ Llama 3.1 8B (Fast)</option>
+                            <option value="gemma2-9b-it">💎 Gemma2 9B (Google)</option>
+                            <option value="deepseek-r1-distill-llama-70b">🧠 DeepSeek R1 (Reasoning)</option>
+                            <option value="qwen/qwen3-32b">🌍 Qwen3 32B (Multilingual)</option>
+                            <option value="moonshotai/kimi-k2-instruct">🌙 Kimi K2 (Large Context)</option>
+                        </select>
+                        <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="chat-box" class="chat-box">
+            <div class="welcome-message">
+                <div class="welcome-content">
+                    <i class="fas fa-sparkles"></i>
+                    <h2>Welcome to AI Chat!</h2>
+                    <p>I'm your intelligent assistant powered by advanced AI models. Ask me anything!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <div class="input-wrapper">
+                <input id="chat-input" type="text" placeholder="Type your message here..." maxlength="500">
+                <div class="input-actions">
+                    <button id="clear-btn" class="action-btn" title="Clear chat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button id="send-btn" class="send-btn" title="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <span class="model-indicator">Using: <span id="current-model">Llama 3.3 70B</span></span>
+                <span class="typing-indicator" id="typing-indicator" style="display: none;">
+                    <i class="fas fa-circle-notch fa-spin"></i> AI is thinking...
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
